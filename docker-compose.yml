@@ -1,0 +1,43 @@
+version: '2'
+services:
+#  db:
+#    image: mysql:5.7
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: "rootpassword"
+#      MYSQL_DATABASE: "project3-backend"
+#      MYSQL_USER: "roots"
+#      MYSQL_PASSWORD: "roots"
+##    networks:
+##      - base
+#    network_mode: "host"
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - /home/hung/project3/data/:/var/lib/mysql/
+##      - mariadb-data:/var/lib/mysql/
+#    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
+
+
+  postgres-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: hung
+      POSTGRES_PASSWORD: Hung12345
+      POSTGRES_DB: project3-backend
+    network_mode: "host"
+    ports:
+      - 5432:5432
+    volumes:
+      - /home/hung/project3/postgresql/:/var/lib/postgresql/data
+
+
+  django-web:
+    image: sevolloves/project3:project3
+    restart: always
+    volumes:
+      - /home/hung/project3/media/:/app/Main/media/
+    network_mode: "host"
+    ports:
+      - "8000:8000"

@@ -12,9 +12,8 @@ class CVView(generics.ListCreateAPIView):
     parser_classes = (parsers.MultiPartParser, parsers.JSONParser, parsers.FileUploadParser,)
 
     def post(self, request, *args, **kwargs):
-        
+        K.clear_session()  
         try:   
-            K.clear_session()    
             f = request.FILES["img"].read()
             nps = np.fromstring(f, np.uint8)
             img = cv2.imdecode(nps, cv2.IMREAD_UNCHANGED)
@@ -24,6 +23,6 @@ class CVView(generics.ListCreateAPIView):
             data = {"text":predict_plate}
             K.clear_session()
             return Response(data, status=status.HTTP_200_OK)
-        except Exception as e:
-            raise e
+        except:
+            K.clear_session()
             return Response({"message":"Đã sảy ra lỗi, bạn vui lòng nhập lại"}, status=status.HTTP_400_BAD_REQUEST)

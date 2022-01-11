@@ -1,5 +1,8 @@
 "# cv-lpr-backend"
 
+**Before run**
+You have to dowload yolo_utils [here](https://drive.google.com/file/d/1syxEju3wQ8AwuQ--B2ChzrkIIwQREHCl/view?usp=sharing), unzip and save to Main/media
+
 **RUN**
 
 -   install requirments

@@ -2,7 +2,6 @@ from .lp_detection import lp_detect_using_contour, lp_detect_using_yolo
 from .character_segmentation import segment_characters
 from .lp_recognition import lp_recognize
 import cv2
-import numpy as np
 from keras.models import load_model
 from django.conf import settings
 import os

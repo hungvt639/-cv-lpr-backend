@@ -111,6 +111,8 @@ STATICFILES_DIRS  = [os.path.join(BASE_DIR, "static")]
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
+VAL = 0
+
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
